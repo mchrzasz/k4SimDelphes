@@ -125,6 +125,7 @@ class DelphesPythia8EvtGenReader_k4Interface: public DelphesInputReader {
     int regenerate=0;//=atoi(argv[10]);
     
     m_evtgen2= new PythiaEvtGen_Interface(m_pythia.get(), argv[5], argv[6], 1000);
+
     //m_evtgen2->set_verbose();
     //m_evtgen2->set_debug();
 
@@ -206,7 +207,7 @@ private:
   static constexpr const char* m_appName = "DelphesPythia8EvtGen";
   std::unique_ptr<Pythia8::Pythia> m_pythia{nullptr};
   std::unique_ptr<Pythia8::EvtGenDecays> m_evtgen{nullptr};
-PythiaEvtGen_Interface *m_evtgen2;
+  PythiaEvtGen_Interface *m_evtgen2;
   FILE *m_inputFile = 0;
   TStopwatch m_readStopWatch, m_procStopWatch;
   ExRootTreeWriter *m_treeWriter{nullptr};
